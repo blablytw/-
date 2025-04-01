@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест  Мова — код нації</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        .question { margin-bottom: 15px; }
+        button { margin-top: 20px; padding: 10px; font-size: 16px; }
+    </style>
+</head>
+<li><a href="index1.html">Головна</a></li>
+<li><a href="index2.html">Про нас</a></li>
+<li><a href="index3.html">Бібліотека</a></li>
+<body>
+    <h1>Тест: Мова — код нації</h1>
+    <form id="quizForm">
+        <div class="question">
+            <p>1. Яка мова є державною в Україні?</p>
+            <input type="radio" name="q1" value="0"> Російська <br>
+            <input type="radio" name="q1" value="12"> Українська <br>
+            <input type="radio" name="q1" value="0"> Англійська
+        </div>
+        
+        <div class="question">
+            <p>2. Хто автор "Кобзаря"?</p>
+            <input type="radio" name="q2" value="12"> Тарас Шевченко <br>
+            <input type="radio" name="q2" value="0"> Іван Франко <br>
+            <input type="radio" name="q2" value="0"> Леся Українка
+        </div>
+        
+        <div class="question">
+            <p>3. Яке свято в Україні відзначають 9 листопада?</p>
+            <input type="radio" name="q3" value="0"> День Конституції <br>
+            <input type="radio" name="q3" value="12"> День української писемності та мови <br>
+            <input type="radio" name="q3" value="0"> День незалежності
+        </div>
+        
+        <div class="question">
+            <p>4. Яке слово є українським?</p>
+            <input type="radio" name="q4" value="12"> Бринза <br>
+            <input type="radio" name="q4" value="0"> Вокзал <br>
+            <input type="radio" name="q4" value="0"> Гараж
+        </div>
+        
+        <div class="question">
+            <p>5. Яке місто називають "колискою української культури"?</p>
+            <input type="radio" name="q5" value="0"> Харків <br>
+            <input type="radio" name="q5" value="0"> Одеса <br>
+            <input type="radio" name="q5" value="12"> Київ
+        </div>
+        
+        <button type="button" onclick="calculateScore()">Перевірити</button>
+    </form>
+    
+    <h2 id="result"></h2>
+    
+    <script>
+        function calculateScore() {
+            let score = 0;
+            let form = document.getElementById('quizForm');
+            let answers = form.elements;
+            
+            for (let i = 1; i <= 5; i++) {
+                let selected = answers['q' + i].value;
+                score += parseInt(selected);
+            }
+            
+            document.getElementById('result').innerText = "Ваш результат: " + score + " балів з 60";
+        }
+    </script>
+</body>
+</html>
